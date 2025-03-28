@@ -1,9 +1,9 @@
 <template>
   <div :class="weatherClass" class="weather-card">
     <h2>{{ weather.name }}</h2>
-    <p>{{ weather.weather[0].description }}</p> <!-- Descripción del clima en español -->
+    <p>{{ weather.weather[0].description }}</p>
     <div class="temperature">
-      <span>{{ weather.main.temp }}°C</span> <!-- Temperatura en °C -->
+      <span>{{ weather.main.temp }}°C</span>
     </div>
   </div>
 </template>
@@ -14,12 +14,10 @@ export default {
     weather: Object,
   },
   computed: {
-
-    
-    // Cambiar el estilo según la temperatura
+    // Cambia la clase según la temperatura (umbral fijo)
     weatherClass() {
-      const temp = this.weather.main.temp;  // Usamos la temperatura tal como está
-      return temp > 293.15 ? 'warm' : 'cold';  // El umbral sigue siendo el mismo
+      const temp = this.weather.main.temp;
+      return temp > 293.15 ? 'warm' : 'cold';
     }
   },
 }
@@ -37,11 +35,11 @@ export default {
 }
 
 .warm {
-  background: #ff7043; /* Calidez para clima cálido */
+  background: #ff7043;
 }
 
 .cold {
-  background: #37474f; /* Oscuro para clima frío */
+  background: #37474f;
 }
 
 h2 {
